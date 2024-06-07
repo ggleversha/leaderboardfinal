@@ -1,0 +1,38 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+}
+
+#timer, #leaderboard {
+  margin: 20px 0;
+}
+
+#taskForm {
+  margin: 20px 0;
+}
+
+#taskInput {
+  padding: 10px;
+  font-size: 16px;
+}
+
+#leaderboard ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#leaderboard li {
+  background: #f9f9f9;
+  margin: 5px 0;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+@media (max-width: 600px) {
+  #taskInput, #taskForm button {
+      width: 100%;
+      margin-top: 10px;
+  }
+}
