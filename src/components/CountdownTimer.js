@@ -1,30 +1,44 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const CountdownTimer = ({ stopTimerForUser }) => {
-    const [time, setTime] = useState('');
+    const calculateTimeLeft = () => {
+        const now = new Date();
+        const midnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 0);
+        const difference = midnight - now;
+        let timeLeft = {};
+
+        if (difference > 0) {
+            timeLeft = {
+                hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+                minutes: Math.floor((difference / 1000 / 60) % 60),
+                seconds: Math.floor((difference / 1000) % 60)
+            };
+        }
+        return timeLeft;
+    };
+
+    const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
     useEffect(() => {
         if (!stopTimerForUser) {
-            const interval = setInterval(() => {
-                const now = new Date();
-                const midnight = new Date();
-                midnight.setHours(24, 0, 0, 0);
-                const diff = midnight - now;
-
-                const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-                const minutes = Math.floor((diff / (1000 * 60)) % 60);
-                const seconds = Math.floor((diff / 1000) % 60);
-
-                setTime(`${hours}h ${minutes}m ${seconds}s`);
+            const timer = setTimeout(() => {
+                setTimeLeft(calculateTimeLeft());
             }, 1000);
-
-            return () => clearInterval(interval);
-        } else {
-            setTime('Task completed for today!');
+            return () => clearTimeout(timer);
         }
-    }, [stopTimerForUser]);
+    }, [timeLeft, stopTimerForUser]);
 
-    return <div id="timer">{time}</div>;
+    return (
+        <div className="countdown-timer">
+            {stopTimerForUser ? (
+                <span>Tasks completed for the day!</span>
+            ) : (
+                <span>
+                    {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s
+                </span>
+            )}
+        </div>
+    );
 };
 
 export default CountdownTimer;

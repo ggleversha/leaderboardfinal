@@ -32,7 +32,11 @@ const App = () => {
     };
 
     return (
-        <div>
+        <div className="app-container">
+            <header className="app-header">
+                <h1 className="app-title">Papps Self Master - Daily</h1>
+                <h2 className="app-subtitle">ANSWER DAILY QUESTIONS HERE</h2>
+            </header>
             <CountdownTimer stopTimerForUser={stopTimerForUser} />
             <TaskForm userId={userId} storeTask={storeTask} />
             <Leaderboard />

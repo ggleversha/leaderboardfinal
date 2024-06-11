@@ -68,3 +68,37 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Countdown Timer and Leaderboard Integration
+
+## Project Overview
+
+This web application integrates a countdown timer, a task submission form, and a leaderboard to track user progress.
+
+## Installation
+
+1. download and unzip the folder
+2. Install dependencies: `npm install`
+3. Start the server: `npm start`
+
+## Technologies
+
+- Frontend: HTML, CSS, JavaScript, React
+- Backend: Node.js, Express
+
+## Features
+
+- Countdown timer that resets daily at midnight
+- Form submission system for daily tasks
+- Leaderboard to display user progress
+- Unique user identification
+- Responsive design
+
+## File Structure
+
+- `public/`: Contains static assets
+- `src/`: Contains React components
+- `backend/`: Contains server-side code
+
+## License
+
+This project is licensed under the MIT License.

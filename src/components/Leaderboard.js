@@ -1,26 +1,27 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 const Leaderboard = () => {
-    const [tasks, setTasks] = useState([]);
-
-    useEffect(() => {
-        const fetchTasks = async () => {
-            const response = await fetch('/api/leaderboard');
-            const data = await response.json();
-            setTasks(Object.entries(data));
-        };
-
-        fetchTasks();
-    }, []);
+    const tasks = JSON.parse(localStorage.getItem('tasks')) || {};
 
     return (
-        <div id="leaderboard">
-            <h2>Leaderboard</h2>
-            <ul id="leaderboardList">
-                {tasks.map(([userId, task]) => (
-                    <li key={userId}>{`User: ${userId}, Task: ${task}`}</li>
-                ))}
-            </ul>
+        <div className="leaderboard">
+            <h3>Leaderboard</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Days Completed</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {Object.keys(tasks).map((userId) => (
+                        <tr key={userId}>
+                            <td>{tasks[userId].name}</td>
+                            <td>{tasks[userId].daysCompleted}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
         </div>
     );
 };
