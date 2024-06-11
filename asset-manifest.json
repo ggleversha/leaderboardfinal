@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/ggleversha/leaderboardfinal/static/css/main.f5b4a059.css",
+    "main.js": "/ggleversha/leaderboardfinal/static/js/main.78df1527.js",
+    "index.html": "/ggleversha/leaderboardfinal/index.html",
+    "main.f5b4a059.css.map": "/ggleversha/leaderboardfinal/static/css/main.f5b4a059.css.map",
+    "main.78df1527.js.map": "/ggleversha/leaderboardfinal/static/js/main.78df1527.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f5b4a059.css",
+    "static/js/main.78df1527.js"
+  ]
+}
